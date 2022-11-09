@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  pwm_fan_control:
+    build: .
+    restart: unless-stopped
+    container_name: pwm-fan-control
+    devices:
+      - /dev/gpiochip0
+    environment:
+      - FAN_PIN=18
+    privileged: true
+    tty: true
